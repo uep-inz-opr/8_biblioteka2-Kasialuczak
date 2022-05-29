@@ -6,6 +6,12 @@ class Biblioteka:
  def dodaj_egzemplarz_ksiazki(self, tytul, autor, rok_wydania):
   self.dostepne_ksiazki.append(tytul)
   return True
+ def wypozycz(self, nazwisko, tytul):
+  czytelnik=Czytelnik()
+  return czytelnik.wypozycz(nazwisko,tytul)
+ def oddaj(self, nazwisko, tytul):
+  czytelnik=Czytelnik()
+  return czytelnik.oddaj(nazwisko,tytul)
 
 class Czytelnik(Biblioteka):
  limit = 3
@@ -56,9 +62,3 @@ biblioteka = Biblioteka()
 czytelnik = Czytelnik()
 for i in range(int(input())):
  t = eval(input())
- if t[0] == "dodaj":
-  print(biblioteka.dodaj_egzemplarz_ksiazki(t[1], t[2], t[3]))
- elif t[0] == "wypozycz":
-  print(biblioteka.wypozycz(t[1],t[2]))
- elif t[0]=="oddaj":
-  print(biblioteka.oddaj(t[1],t[2]))
