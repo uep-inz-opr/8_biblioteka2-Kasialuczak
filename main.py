@@ -2,10 +2,13 @@ class Biblioteka:
  dostepne_ksiazki=[]
  def __init__(self):
   self.ksiazka=dict()
- 
+
  def dodaj_egzemplarz_ksiazki(self, tytul, autor, rok_wydania):
   self.dostepne_ksiazki.append(tytul)
   return True
+ 
+ def __pobierz_czytelnika(self, nazwisko):
+  czytelnik=Czytelnik()
  def wypozycz(self, nazwisko, tytul):
   czytelnik=Czytelnik()
   return czytelnik.wypozycz(nazwisko,tytul)
@@ -20,7 +23,7 @@ class Czytelnik(Biblioteka):
  oddane=[]
  def __init__(self):
   self.nazwisko=dict()
- def wypozycz(self, nazwisko,tytul):
+ def wypozycz(self, nazwisko, tytul):
   self.wypozyczone_ksiazki.append(nazwisko)
   self.lista_wypozyczonych_ksiazek.append((nazwisko,tytul))
   lista_nazwisk=set(self.wypozyczone_ksiazki)
