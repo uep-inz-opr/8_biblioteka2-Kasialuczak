@@ -2,7 +2,7 @@ class Biblioteka:
  dostepne_ksiazki=[]
  def __init__(self):
   self.ksiazka=dict()
- 
+
  def dodaj_egzemplarz_ksiazki(self, tytul, autor, rok_wydania):
   self.dostepne_ksiazki.append(tytul)
   return True
@@ -53,7 +53,7 @@ def oddaj(self, nazwisko, tytul):
    self.lista_wypozyczonych_ksiazek.remove(n)
    self.oddane.remove(n)
    self.dostepne_ksiazki.append(tytul)
-   
+
    return True
  else:
    return False
@@ -62,3 +62,9 @@ biblioteka = Biblioteka()
 czytelnik = Czytelnik()
 for i in range(int(input())):
  t = eval(input())
+ if t[0] == "dodaj":
+  print(biblioteka.dodaj_egzemplarz_ksiazki(t[1], t[2], t[3]))
+ elif t[0] == "wypozycz":
+  print(biblioteka.wypozycz(t[1],t[2]))
+ elif t[0]=="oddaj":
+  print(biblioteka.oddaj(t[1],t[2]))
